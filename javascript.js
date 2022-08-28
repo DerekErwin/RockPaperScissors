@@ -33,7 +33,7 @@ function getPlayerChoice(currentRound = 1, rounds = 1){
         break;
       default:
         choice = "";
-        console.warn("Not a correct choice.")
+        console.log("Not a correct choice.")
     }
   }
 }
@@ -88,15 +88,15 @@ function game(rounds = 1) {
 
     switch (outcome) {
       case "win":
-        console.log(`You win! ${playerChoice} vs ${computerChoice}.`);
+        console.log(`%cYou win!%c ${playerChoice} vs ${computerChoice}.`, "color: lawngreen;", "");
         ++wins;
         break;
       case "lose":
-        console.error(`You lose! ${playerChoice} vs ${computerChoice}.`);
+        console.log(`%cYou lose!%c ${playerChoice} vs ${computerChoice}.`, "color: crimson;", "");
         ++losses;
         break;
       case "tie":
-        console.warn(`Tie! ${playerChoice} vs ${computerChoice}.`);
+        console.log(`%cTie!%c ${playerChoice} vs ${computerChoice}.`, "color: gold;", "");
         ++ties;
         break;
     }
