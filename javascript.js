@@ -40,7 +40,6 @@ function getPlayerChoice(currentRound = 1, rounds = 1){
 
 function playRound(playerChoice, computerChoice) {
   if (playerChoice == computerChoice){
-    console.warn(`Tie! ${playerChoice} vs ${computerChoice}.`);
     return "tie";
   }
 
@@ -48,11 +47,9 @@ function playRound(playerChoice, computerChoice) {
     case "rock":
       switch (computerChoice){
         case "paper":
-          console.log(`You win! ${playerChoice} vs ${computerChoice}.`);
           return "win";
           break;
         case "scissors":
-          console.error(`You lose! ${playerChoice} vs ${computerChoice}.`);
           return "lose";
           break;
       }
@@ -60,11 +57,9 @@ function playRound(playerChoice, computerChoice) {
     case "paper":
       switch (computerChoice){
         case "rock":
-          console.log(`You win! ${playerChoice} vs ${computerChoice}.`);
           return "win";
           break;
         case "scissors":
-          console.error(`You lose! ${playerChoice} vs ${computerChoice}.`);
           return "lose";
           break;
       }
@@ -72,11 +67,9 @@ function playRound(playerChoice, computerChoice) {
     case "scissors":
       switch (computerChoice){
         case "paper":
-          console.log(`You win! ${playerChoice} vs ${computerChoice}.`);
           return "win";
           break;
         case "rock":
-          console.error(`You lose! ${playerChoice} vs ${computerChoice}.`);
           return "lose";
           break;
       }
@@ -95,12 +88,15 @@ function game(rounds = 1) {
 
     switch (outcome) {
       case "win":
+        console.log(`You win! ${playerChoice} vs ${computerChoice}.`);
         ++wins;
         break;
       case "lose":
+        console.error(`You lose! ${playerChoice} vs ${computerChoice}.`);
         ++losses;
         break;
       case "tie":
+        console.warn(`Tie! ${playerChoice} vs ${computerChoice}.`);
         ++ties;
         break;
     }
