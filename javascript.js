@@ -20,7 +20,8 @@ function getComputerChoice() {
 function getPlayerChoice(currentRound = 1, rounds = 1){
   let choice = "";
   while (choice == "") {
-    choice = prompt(`${currentRound + 1} of ${rounds} - Choose rock, paper or scissors.`).toLowerCase();
+    choice = prompt(`${currentRound + 1} of ${rounds} - Choose rock, paper or scissors.`);
+    if (choice !== null) {choice = choice.toLowerCase()}
     switch (choice) {
       case "rock":
         return "rock";
