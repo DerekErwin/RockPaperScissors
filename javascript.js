@@ -86,14 +86,17 @@ function game(rounds, buttonChoice) {
 
     switch (outcome) {
       case "win":
+        gameOutput.textContent = `You win! ${playerChoice} vs ${computerChoice}.`;
         console.log(`%cYou win!%c ${playerChoice} vs ${computerChoice}.`, "color: lawngreen;", "");
         ++wins;
         break;
       case "lose":
+        gameOutput.textContent = `You lose! ${playerChoice} vs ${computerChoice}.`;
         console.log(`%cYou lose!%c ${playerChoice} vs ${computerChoice}.`, "color: crimson;", "");
         ++losses;
         break;
       case "tie":
+        gameOutput.textContent = `Tie! ${playerChoice} vs ${computerChoice}.`;
         console.log(`%cTie!%c ${playerChoice} vs ${computerChoice}.`, "color: gold;", "");
         ++ties;
         break;
