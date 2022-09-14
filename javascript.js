@@ -78,13 +78,10 @@ function playRound(playerChoice, computerChoice) {
   }
 }
 
-function game(rounds = 1) {
-  let wins = 0;
-  let losses = 0;
-  let ties = 0;
+function game(rounds, buttonChoice) {
   for (let i = 0; i < rounds; i++) {
     let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerChoice(i, rounds);
+    let playerChoice = buttonChoice;
     let outcome = playRound(playerChoice, computerChoice);
 
     switch (outcome) {
@@ -105,4 +102,36 @@ function game(rounds = 1) {
   console.log(`Finished with ${wins} wins, ${losses} losses, and ${ties} ties.`);
 }
 
-game(3);
+let wins = 0;
+let losses = 0;
+let ties = 0;
+
+let rockButton = document.querySelector('.button.rock');
+let paperButton = document.querySelector('.button.paper');
+let scissorsButton = document.querySelector('.button.scissors');
+let gameOutput = document.querySelector('.gameoutput');
+
+
+rockButton.addEventListener('click', function (e) {
+  //console.log(e);
+  //console.log(e.target);
+  let randomColor = Math.floor(Math.random()*16777215).toString(16);
+  e.target.style.background = "#" + randomColor;
+  game(1, 'rock');
+});
+
+paperButton.addEventListener('click', function (e) {
+  //console.log(e);
+  //console.log(e.target);
+  let randomColor = Math.floor(Math.random()*16777215).toString(16);
+  e.target.style.background = "#" + randomColor;
+  game(1, 'paper');
+});
+
+scissorsButton.addEventListener('click', function (e) {
+  //console.log(e);
+  //console.log(e.target);
+  let randomColor = Math.floor(Math.random()*16777215).toString(16);
+  e.target.style.background = "#" + randomColor;
+  game(1, 'scissors');
+});
